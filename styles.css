@@ -1,0 +1,129 @@
+:root {
+    --primary: #2563eb;
+    --accent: #10b981;
+    --danger: #ef4444;
+    --light-bg: #f8fafc;
+    --dark-bg: #0f172a;
+}
+
+/* Theme Styles */
+[data-bs-theme=light] {
+    --bs-body-bg: var(--light-bg);
+}
+
+[data-bs-theme=dark] {
+    --bs-body-bg: var(--dark-bg);
+}
+
+/* General Styles */
+body {
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--bs-body-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* Card Animations */
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Priority Badge Colors */
+.badge[data-priority="high"] {
+    background-color: var(--danger);
+}
+
+.badge[data-priority="medium"] {
+    background-color: var(--bs-warning);
+}
+
+.badge[data-priority="low"] {
+    background-color: var(--bs-info);
+}
+
+/* Completed Task Styling */
+.task-completed .card {
+    opacity: 0.7;
+}
+
+.task-completed .task-title {
+    text-decoration: line-through;
+}
+
+/* Task Enter/Leave Animations */
+.task-item {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button hover effects */
+.btn {
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle i {
+    font-size: 1.2rem;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-gray-400);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-gray-500);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .d-flex.gap-2 {
+        flex-wrap: wrap;
+    }
+    
+    #searchTasks {
+        min-width: 200px;
+    }
+}
